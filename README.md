@@ -1,6 +1,11 @@
 ## WebStorm-PX2REM----px转rem插件
 
-## 项目介绍
+[![codebeat badge](https://codebeat.co/badges/290c72c6-f4e8-4f45-81e0-b98c612805b6)](https://codebeat.co/projects/github-com-sunqian1991-webstorm-px2rem-master)
+[![](https://img.shields.io/badge/license-MIT-000000.svg)](https://github.com/sunqian1991/WebStorm-PX2REM/blob/master/LICENSE)
+[![](https://img.shields.io/jetbrains/plugin/v/11187.svg)](https://plugins.jetbrains.com/plugin/11187-px2rem)
+[![](https://img.shields.io/jetbrains/plugin/d/11187.svg)](https://plugins.jetbrains.com/plugin/11187-px2rem)
+
+#### 项目介绍
 
 webstorm插件，主要是把css中的px转换为rem，其中可以在webstorm中设置转化的比例值(File-Other Settings-PX2REM)
 
@@ -9,11 +14,11 @@ webstorm插件，主要是把css中的px转换为rem，其中可以在webstorm�
 目前是自动转换光标所在行内的正确书写的样式，或者转换光标选择的px样式，如果有更好的使用方式建议，欢迎提出，共同学习。
 
 
-## 当前版本
+#### 当前版本
 
 V2.0.2
 
-## 更新日志
+#### 更新日志
 
 v2.0.2:在注释中添加了计算的过程；修改了保留小数位数的设置，在可以被整除的情况下，不改变精度
 
@@ -35,7 +40,7 @@ v1.1.0:在原有的基础上添加了自动转换当前光标所在行中可以�
 
 v1.0.0:初始编写，webstorm插件，主要是把css中的px转换为rem，其中可以在webstorm中设置转化的比值(window-SetPX2REM),选中后通过快捷键shift+f来转化，如比值为100，选中"100px"后，点击shift+d，自动转化为1.00rem
 
-## 联系我
+#### 联系我
 
 如有任何问题，请联系我
 
@@ -43,13 +48,11 @@ QQ:991637393
 
 email:sunqian1991@gmail.com
 
-**如果觉得还不算坏，请点个赞吧2333**
-
-## 安装教程
+#### 安装教程
 
 Project SDK选择IntelliJ IDEA IU-*****,调试没有错误后，即可生成jar文件，在webstorm中使用
 
-## 使用说明
+#### 使用说明
 
 1. File - Settings - plugins - Browse repositories... - 搜索 'px2rem' - Install (也可以通过 File-Settings-plugins-install plugin from disk-选择生成的jar文件-restart webstorm 在本地安装).
 2. File-Other Settings-PX2REM设置计算的比例值-选中代码段或光标移动到需要转换的行，点击shift+d.
@@ -76,7 +79,7 @@ Project SDK选择IntelliJ IDEA IU-*****,调试没有错误后，即可生成jar�
 
 ![image][opt_gif]
 
-## 参与贡献
+#### 参与贡献
 
 1. Fork 本项目
 2. 新建 Feat_xxx 分支
