@@ -3,9 +3,8 @@ package com.sunq.utils;
 import java.text.MessageFormat;
 
 /**
- * Author:sunqian
- * Date:2018/12/18 15:24
- * Description:
+ * @author sunqian
+ * @date 2018/12/18
  */
 public class FormatAccuracy {
 

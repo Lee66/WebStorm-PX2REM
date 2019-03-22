@@ -15,9 +15,8 @@ import com.sunq.utils.FormatTools;
 import java.util.stream.IntStream;
 
 /**
- * Author:sunqian
- * Date:2018/12/8 15:31
- * Description:
+ * @author sunqian
+ * @date 2018/12/8
  */
 public class PX2REMWithFile extends AnAction {
 

@@ -8,9 +8,8 @@ import com.intellij.openapi.project.Project;
 import java.awt.*;
 
 /**
- * Author:sunqian
- * Date:2018/8/8 12:39
- * Description:
+ * @author sunqian
+ * @date 2018/8/8
  */
 public class SetPX2REM extends AnAction {
 

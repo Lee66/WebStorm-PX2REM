@@ -3,22 +3,26 @@ package com.sunq.constvalue;
 import com.intellij.openapi.components.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.xmlb.XmlSerializerUtil;
+import com.sunq.utils.LogicUtils;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
+
 /**
- * Author:sunqian
- * Date:2018/8/8 12:19
- * Description:
+ * @author sunqian
+ * @date 2018/8/8
  */
 @State(name = "px2remForWebStorm",storages = {@Storage("px2remforwebstorm.xml")})
 public class ConstValue implements PersistentStateComponent<ConstValue> {
+
+    private LogicUtils logic = LogicUtils.getLogic();
 
     public String remBaseValue;
 
     public Boolean showCalculationProcess;
 
     public Boolean getShowCalculationProcess() {
-        return showCalculationProcess == null ? false : showCalculationProcess;
+        return this.logic.funOrElse(showCalculationProcess, Objects::nonNull, show -> show, show -> false);
     }
 
     public void setShowCalculationProcess(Boolean showCalculationProcess) {

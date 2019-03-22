@@ -15,9 +15,8 @@ import com.sunq.utils.FormatAccuracy;
 import com.sunq.utils.FormatTools;
 
 /**
- * Author:sunqian
- * Date:2018/8/8 12:11
- * Description:
+ * @author sunqian
+ * @date 2018/8/8
  */
 public class WebStormPX2REMTools extends AnAction {
 
