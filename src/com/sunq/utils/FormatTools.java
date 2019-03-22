@@ -78,10 +78,10 @@ public class FormatTools {
     public boolean check(double amount, double count) {
         return this.logic.funOrElse(count, divisor -> Objects.nonNull(divisor) && divisor != 0, divisor ->
                         this.logic.funOrElse((amount / divisor), value -> Objects.nonNull(value) && value == 0, value -> true, value -> {
-                            this.logic.funWithWhile(this.logic.funWithWhile(divisor, m -> m % 2 == 0, m -> m /2), n -> n % 5 == 0, n -> n /5);
+                            return this.logic.funWithWhile(this.logic.funWithWhile(divisor, m -> m % 2 == 0, m -> m /2), n -> n % 5 == 0, n -> n /5);
 
 
-                            return this.logic.funOrElse((amount % m), flag -> Objects.nonNull(flag) && flag != 0, flag -> false, flag -> true);
+//                            return this.logic.funOrElse((amount % m), flag -> Objects.nonNull(flag) && flag != 0, flag -> false, flag -> true);
                         })
                 , divisor -> {
                     throw new RuntimeException(CONST_VALUE_NULL);
