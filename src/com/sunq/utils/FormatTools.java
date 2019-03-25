@@ -1,13 +1,11 @@
 package com.sunq.utils;
 
-import clojure.lang.Obj;
 import com.sunq.constvalue.ConstValue;
 import org.apache.commons.lang.StringUtils;
 
 import java.math.BigDecimal;
 import java.text.MessageFormat;
 import java.util.Objects;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.sunq.constvalue.CommonValue.*;
@@ -39,7 +37,20 @@ public class FormatTools {
     }
 
     public String getFormatLine(String content) {
-        int index = -1;
+        this.logic.conWithWhile(StringUtils.indexOf(content.toLowerCase(), STYLE_TAG), index -> index > -1, index -> {
+            int startIndex = index;
+            while (this.isNumeric(content.substring(startIndex - 1, index)) && startIndex > 0) {
+                startIndex--;
+            }
+            if (startIndex != index) {
+                String value = content.substring(startIndex, index) + STYLE_TAG;
+                content = content.substring(0, startIndex) + getFormatText(value) + content.substring(index + 2);
+            } else {
+                break;
+            }
+        }});
+        /*
+        int index;
         while ((index = StringUtils.indexOf(content.toLowerCase(), STYLE_TAG)) > -1) {
             int startIndex = index;
             while (this.isNumeric(content.substring(startIndex - 1, index)) && startIndex > 0) {
@@ -51,7 +62,7 @@ public class FormatTools {
             } else {
                 break;
             }
-        }
+        }*/
 
         return content;
     }
@@ -77,12 +88,9 @@ public class FormatTools {
      */
     public boolean check(double amount, double count) {
         return this.logic.funOrElse(count, divisor -> Objects.nonNull(divisor) && divisor != 0, divisor ->
-                        this.logic.funOrElse((amount / divisor), value -> Objects.nonNull(value) && value == 0, value -> true, value -> {
-                            return this.logic.funWithWhile(this.logic.funWithWhile(divisor, m -> m % 2 == 0, m -> m /2), n -> n % 5 == 0, n -> n /5);
-
-
-//                            return this.logic.funOrElse((amount % m), flag -> Objects.nonNull(flag) && flag != 0, flag -> false, flag -> true);
-                        })
+                        this.logic.funOrElse((amount / divisor), value -> Objects.nonNull(value) && value == 0, value -> true, value ->
+                                amount % this.logic.funWithWhile(this.logic.funWithWhile(divisor, m -> m % 2 == 0, m -> m / 2), n -> n % 5 == 0, n -> n / 5) == 0
+                        )
                 , divisor -> {
                     throw new RuntimeException(CONST_VALUE_NULL);
                 });
@@ -94,11 +102,12 @@ public class FormatTools {
 
     /**
      * 获取精度
-     * @param remValue  转换后的长度值
-     * @return          返回转换精度后的值
+     *
+     * @param remValue 转换后的长度值
+     * @return 返回转换精度后的值
      */
     public String getAccuracy(String remValue) {
-        return this.logic.funOrElse(this.logic.funOrElse(remValue, value -> Objects.nonNull(value) && value.indexOf(STYLE_SEPARATE) < 0, value -> value.length(), value -> value.indexOf(STYLE_SEPARATE)), index -> Objects.nonNull(index) && index > 0, index ->
+        return this.logic.funOrElse(this.logic.funOrElse(remValue, value -> Objects.nonNull(value) && !value.contains(STYLE_SEPARATE), value -> value.length(), value -> value.indexOf(STYLE_SEPARATE)), index -> Objects.nonNull(index) && index > 0, index ->
                 MessageFormat.format(PATTERN_ACCURACY, remValue.substring(0, index.intValue()).length() + 1), index -> remValue);
     }
 

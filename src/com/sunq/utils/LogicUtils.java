@@ -72,21 +72,28 @@ public class LogicUtils {
         return end;
     }
 
-    public <T,R> R funOrEndWithEx(T t, Predicate<T> predicate, Function<T, R> funcTrue, Function<T, R> funcFalse, R end){
-        try{
-            if(predicate.test(t)){
+    public <T, R> R funOrEndWithEx(T t, Predicate<T> predicate, Function<T, R> funcTrue, Function<T, R> funcFalse, R end) {
+        try {
+            if (predicate.test(t)) {
                 return funcTrue.apply(t);
             } else {
                 return funcFalse.apply(t);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             return end;
         }
     }
 
-    public <T> void funWithWhile(T t, Predicate<T> predicate, Function<T, T> function){
-        while(predicate.test(t)){
+    public <T> T funWithWhile(T t, Predicate<T> predicate, Function<T, T> function) {
+        while (predicate.test(t)) {
             t = function.apply(t);
+        }
+        return t;
+    }
+
+    public <T> void conWithWhile(T t, Predicate<T> predicate, Consumer<T> consumer) {
+        while (predicate.test(t)) {
+            consumer.accept(t);
         }
     }
 
