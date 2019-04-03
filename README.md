@@ -4,6 +4,7 @@
 [![](https://img.shields.io/badge/license-MIT-000000.svg)](https://github.com/sunqian1991/WebStorm-PX2REM/blob/master/LICENSE)
 [![](https://img.shields.io/jetbrains/plugin/v/11187.svg)](https://plugins.jetbrains.com/plugin/11187-px2rem)
 [![](https://img.shields.io/jetbrains/plugin/d/11187.svg)](https://plugins.jetbrains.com/plugin/11187-px2rem)
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
 #### 项目介绍
 
